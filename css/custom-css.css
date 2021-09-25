@@ -23,8 +23,12 @@ html {
     font-family: Georgia, serif;
 }
 
-#background-image {
-    background-image: url("profile_pic.png");
+/* #main-page {
+    background-color: navy;
+    opacity: 0.25;
+} */
+#profile-pic {
+    margin-left: 20px;
 }
 
 /* Vertical timeline from https://bootsnipp.com/snippets/xrKXW */
