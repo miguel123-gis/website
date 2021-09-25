@@ -1,0 +1,74 @@
+/* Navigation bar padding */
+.navbar-nav{
+    padding-bottom: 2px;
+}
+
+/* Navigation bar underline animation */
+.navbar-nav > li > a::after{
+    content: "";
+    display: block;
+    width: 0%;
+    border-bottom: 2px solid white;
+    padding-bottom: 0px;
+    transition: .2s linear;
+}
+.navbar-nav > li > a:hover::after{
+    padding-bottom: 0px;
+    width: 100%;
+}
+
+/* Global font size */
+html {
+    font-size: 18px;
+    font-family: Georgia, serif;
+}
+
+#background-image {
+    background-image: url("profile_pic.png");
+}
+
+/* Vertical timeline from https://bootsnipp.com/snippets/xrKXW */
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+}
+ul.timeline:before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+}
+ul.timeline > li {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+ul.timeline > li:before {
+    content: ' ';
+    background: white;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #286DA8;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 400;
+}
+
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:65%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
