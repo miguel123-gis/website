@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/custom-css.css">
+    <link rel="icon" href="../../images/globe_icon.png">
+    <script src="https://kit.fontawesome.com/fb1a52c471.js" crossorigin="anonymous"></script>
+    <title>Miguel Imperial's website</title>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: navy">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav ms-auto mb-3 mb-lg-0" style="font-size: 1.1em;">
+                    <li class="nav-item">
+                        <a class="nav-link link-dark active" aria-current="page" href="index.html">Maps</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-dark active" aria-current="page" href="https://miguel123-gis.github.io/bikelanes-map" target="_blank">Bayanihan II bike lanes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-dark active" aria-current="page" href="https://miguel123-gis.github.io/baao-osm-page/index.html" target="_blank">Mapping Baao in OpenStreetMap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-dark" href="index.html">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</head>
+<body id="background">
+    <div id="blog-page" class="container py-3 my-3">
+        <div id="blog-header" class="header">
+            <h2><b>Parameterize the Offset option in QGIS</b></h2>
+            <h5>03 October 2021</h5>
+        </div>
+        <div id="blog-body" class="cold">
+            <img id="blog-banner" src="images/banner.png" alt="Parameterize the Offset option in QGIS" align="middle">
+            <p>
+                Let's say you have line that has a field-dependent width and you want to add a patern beside it. But you need the pattern's distance/offset from the line uniform among all line types.</br>
+                <img id="blog-pic" src="images/line_pattern.png" alt="Pattern beside a line"></br>
+                Over the course of the project, you might try different distance/offset. A good way to do this is to use a use an expression that gets the width of the line, adds the distance you want, and returns it as a double.</br>
+                <img id="blog-pic" src="images/expression.png" alt="Expression Builder window"></br>
+                As you may see in the Expression Builder window, the Offset option accepts a pair of numbers, separated by a comma, and as a string. 
+                Since we're only interested in putting the pattern on the side of the line, <code>x</code> stays 0. The <code>y</code> value is the width of the line plus the desired distance.
+                You can try <code>'x,(line_width+0.2)'</code> but it won't work because the <code>y</code> value needs to be an integer right away because the double is wrapped in a '' and is a string. 
+                I've tried other variations of this expression until I figured I need to create a custom function that returns a double as a string that accepts a field and an integer as input for both the <code>xy</code> values.
+                <img id="blog-pic" src="images/expression_string.png" alt="Input returns as string"></br>
+                Go to the Function Editor in the same window and create a new Python function:</br>
+                <pre>
+                    <code class="language-python">
+                        from qgis.core import *
+                        from qgis.gui import *
+
+                        @qgsfunction(args='auto', group='Custom')
+                        def line_offset(value1, value2, feature, parent):
+                            """
+                            Gets the sum of a field and a value and returns as, in this case, the positive y value of a string of doubles for the offset of points along a line.
+                            &lt;h2&gt;Example usage:&lt;/h2&gt;
+                            &ltulgt;
+                                &ltli> let "line width field" be 1&lt;/li&gt;
+                                &ltli>line_offset("line width field", 0.1) -> 1.1&lt;/li&gt;
+                                &ltli>returns '0,1.1'&lt;/li&gt;
+                            &lt/ul&gt;
+                            """
+                            y_val= value1+value2
+                            offset_val = '{x},{y}'.format(x=0, y=y_val)
+                            return offset_val
+                    </code>
+                </pre></br>
+                Go back to the Expression builder and double-click the new function under the Custom tab. Note that this function only changes the <code>y</code> value 
+                as shown in the <code>offset_val = '{x},{y}'.format(x=0, y=y_val)</code> line.</br></br>
+                The function accepts two values and you can now use your layer's line width field and your desired offset/distance. In this case, it's called <code>line_width</code>.
+                <img id="blog-pic" src="images/expression_working.png" alt="Expression returns a double"></br>
+                Even if the width of the lines change, the pattern stays 0.2mm away from the lines. To change the offset, just change the second value in the expression</br></br>
+                I hope this helps! 😊 
+            <p>
+        </div>
+    </div>    
+</body>
+
+</html>
