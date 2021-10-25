@@ -1,10 +1,8 @@
 /* HOME PAGE */
 /* Global font size */
-html {
-    font-size: 18px;
-    font-family: Georgia, serif;
+* {
+    font-family: Arial, Helvetica, sans-serif;
 }
-
 #navbar{
     opacity: 1;
 }
