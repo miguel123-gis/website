@@ -12,66 +12,81 @@
     <script src="https://kit.fontawesome.com/fb1a52c471.js" crossorigin="anonymous"></script>
     <title>Miguel Imperial's website</title>
     <!-- Navigation Bar -->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: navy">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container-fluid">
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="font-size: 1.1em;">
                     <li class="nav-item">
-                        <a class="nav-link link-dark active" aria-current="page" href="maps.html" target="_blank">Maps</a>
+                        <a class="nav-link" aria-current="page" style="color: black;" href="maps.html" target="_blank">Maps</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link-dark active" aria-current="page" href="https://miguel123-gis.github.io/bikelanes-map" target="_blank">Bayanihan II bike lanes</a>
+                        <a class="nav-link" aria-current="page" style="color: black;" href="https://miguel123-gis.github.io/bikelanes-map" target="_blank">Bayanihan II bike lanes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link-dark active" aria-current="page" href="https://miguel123-gis.github.io/baao-osm-page" target="_blank">Mapping Baao in OpenStreetMap</a>
+                        <a class="nav-link" aria-current="page" style="color: black;" href="https://miguel123-gis.github.io/baao-osm-page" target="_blank">Mapping Baao in OpenStreetMap</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link-dark" href="blog.html" target="_blank">Blog</a>
+                        <a class="nav-link" style="color: #787878;" href="blog.html" target="_blank">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link-dark" href="index.html" target="_blank">Home</a>
+                        <a class="nav-link" style="color: #787878;" href="index.html" target="_blank">Home</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 </head>
-<body id="background">
+<body>
     <div id="main-page" class="container py-3 my-3">
         <!-- Header Bar -->
         <div class="row">
             <div class="col-md-6">
                 <h2>GIS, web-mapping, cartography</h2>
-                <h5 style="color: #535353;">Currently working in the solar industry</h5>
+                <h5 style="color: #787878;">Currently working in the real estate industry</h5>
             </div>
-            <div class="col-md-6" style="font-size: 1.5rem">
+            <!-- <div class="col-md-6" style="font-size: 1.5rem">
                 <a href="https://www.linkedin.com/in/miguel-imperial-8abaa31a0" target="_blank" style="color: navy;"><i class="fab fa-linkedin-in"></i></a> &nbsp;
                 <a href="https://github.com/miguel123-gis" target="_blank" style="color: navy;"><i class="fab fa-github"></i></a> &nbsp;
-            </div>
+            </div> -->
         </div>
         <!-- About section -->
         <div class="row" style="padding-top: 2rem">
             <div class="col-md-4">
-                <img id="profile-pic" src="images/profile_pic.jpg" class="rounded-bottom rounded-top" alt="profile" width="75%">
+                <img id="profile-pic" src="images/profile_pic.jpg" class="rounded-bottom rounded-top" alt="profile" width="75%" >
             </div>
             
             <div class="col-md-8">
                 <p style="text-align: justify">
-                    I'm an early-career Geographic Information Systems (GIS) Professional with proven skills in <b>spatial analysis, web-mapping, cartography, and project management</b>.<br><br>
-                    Prior to solar, I worked in transportation and environmental consultancy. You may contact me through LinkedIn.<br><br>
-                    <button>
-                        <a href="https://drive.google.com/file/d/11TcxoW4irzbgfvxV5DGZpYZImo9bYdx7/view?usp=sharing" target="_blank">
+                    I'm a mid-career GIS Professional proficient in 
+                        <b>spatial analysis</b> <span style="font-size:10px">(QGIS, ArcGIS, GDAL/OGR)</span>, 
+                        <b>web-mapping</b> <span style="font-size:10px">(Leaflet)</span>, 
+                        <b>photogrammetry</b> <span style="font-size:10px">(ODM, Metashape)</span>, 
+                        <b>cartography</b>, and 
+                        <b>project management</b>.<br><br>
+                    Prior to real estate, I worked in solar, transportation, and environmental consultancy.<br><br>
+                    <button class="button" id="cv-button">
+                        <a class="pr-link" href="https://drive.google.com/file/d/11TcxoW4irzbgfvxV5DGZpYZImo9bYdx7/view?usp=sharing" target="_blank">
                             View CV
+                        </a>
+                    </button>
+                    <button class="button" id="li-button">
+                        <a href="https://www.linkedin.com/in/miguel-imperial-8abaa31a0" target="_blank">
+                            View LinkedIn
+                        </a>
+                    </button>
+                    <button class="button" id="gh-button">
+                        <a href="https://github.com/miguel123-gis" target="_blank">
+                            View GitHub
                         </a>
                     </button>
                 </p>
             </div>
         </div>
-        <!-- Footer -->
-        <div class="footer">
-            <p class="text-center" style="color: gray">&copy; <script>document.write(new Date().getFullYear())</script> Miguel Imperial All Rights Reserved</p>
-        </div>
-    </div>    
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <p style="color: #787878">&copy; <script>document.write(new Date().getFullYear())</script> Miguel Imperial All Rights Reserved</p>
+    </div>
 </body>
 
 </html>
