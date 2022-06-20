@@ -1,6 +1,9 @@
 # My simple website/landing page
 ## See it at [geomi.xyz](https://geomi.xyz/) ("geo" plus my initials).
 </br></br>
+V3 20 June 2022
+![Screenshot](images/v4_screenshot.png)
+</br></br>
 V3 29 May 2022
 ![Screenshot](images/v3_screenshot.png)
 </br></br>
